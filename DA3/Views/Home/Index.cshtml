@@ -1,0 +1,33 @@
+﻿@model List<DA3.Context.SanPham>
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+ 
+}
+
+<!-- Product Catagories Area Start -->
+<div class="products-catagories-area clearfix">
+    <div class="amado-pro-catagory clearfix">
+
+
+        @foreach (var item in Model)
+        {
+            <!-- Single Catagory -->
+            <div class="single-products-catagory clearfix">
+                <a href="shop.html">
+                    <a href="@Url.Action("Index","Detail",new {id = item.id})">
+                        <img style="height:280px;width:250px;" src="~/img/product-img/@item.avatar1" alt="">
+                    </a>
+
+                    <!-- Hover Content -->
+                    <div class="hover-content">
+                        <div class="line"></div>
+                        <p>@item.Price</p>
+                        <h4>@item.name</h4>
+                    </div>
+                </a>
+            </div>
+        }
+    </div>
+</div>
+<!-- Product Catagories Area End -->
